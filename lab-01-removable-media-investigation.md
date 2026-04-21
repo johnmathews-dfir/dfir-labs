@@ -4,7 +4,7 @@
 To simulate the forensic acquisition and analysis of a removable storage device, ensuring evidence integrity and recovering user data.
 
 ## Scenario
-A USB storage device (JM-USB-001) was obtained for examination. The objective was to create a forensic image and analyse its contents while maintaining evidential integrity.
+A USB storage device (JM-USB-001) was prepared for examination as part of a simulated forensic exercise. The device was populated with sample data to simulate typical user activity. The objective was to create a forensic image and analyse its contents while maintaining evidential integrity.
 
 ## Environment
 - Linux Mint
