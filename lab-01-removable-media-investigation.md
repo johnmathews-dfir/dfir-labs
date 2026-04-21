@@ -29,7 +29,7 @@ A third imaging attempt was performed using a simplified `dd` command:
 
 ```bash
 sudo dd if=/dev/sdb of=JM-USB-001-3.img bs=4M status=progress
-
+'''
 The resulting image size matched the original device.
 
 A SHA256 hash of the image matched the original device hash, confirming a successful bit-for-bit forensic copy.
