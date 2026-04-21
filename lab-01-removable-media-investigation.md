@@ -13,7 +13,7 @@ A USB storage device (JM-USB-001) was obtained for examination. The objective wa
 ## Method
 
 ### Initial Integrity Check
-A SHA256 hash was generated from the unmounted device to establish a baseline integrity value.
+A SHA256 hash was generated from the unmounted device (JM-USB-001) to establish a baseline integrity value.
 
 ### First Acquisition Attempt
 A forensic image was created using `dd`.  
@@ -49,7 +49,7 @@ The verified image was examined, and files were recovered, including:
 ## Analysis
 The process highlighted the importance of controlled acquisition techniques and validation at each stage.
 
-The mismatch in early attempts demonstrated how small changes in command usage can affect forensic outcomes.
+The mismatch in early attempts demonstrated how small changes in command usage can affect forensic outcomes, reinforcing the need for controlled and repeatable processes.
 
 Successful hash matching confirmed a forensically sound image, suitable for analysis.
 
