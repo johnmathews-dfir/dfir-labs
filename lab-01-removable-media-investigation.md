@@ -1,47 +1,31 @@
-# Lab 01: Removable Media Investigation
+# Lab 01: Removable Media Forensic Acquisition and Analysis
 
 ## Objective
-To examine a removable storage device and identify evidence of user activity.
+To simulate the forensic acquisition and analysis of a removable storage device, ensuring evidence integrity and recovering user data.
 
 ## Scenario
-A USB storage device was analysed to determine its contents and potential usage patterns.
+A USB storage device (JM-USB-001) was obtained for examination. The objective was to create a forensic image and analyse its contents while maintaining evidential integrity.
 
 ## Environment
 - Linux Mint
-- USB removable drive
+- Removable USB storage device
 
 ## Method
 
-### Device Identification
-The device was identified using `lsblk` to confirm its presence and mount point.
+### Initial Integrity Check
+A SHA256 hash was generated from the unmounted device to establish a baseline integrity value.
 
-### Initial Acquisition Attempt
-An attempt was made to create a disk image using `dd` and verify integrity using SHA-256 hashing.
+### First Acquisition Attempt
+A forensic image was created using `dd`.  
+A SHA256 hash of the resulting image did not match the original device hash, indicating an issue with the acquisition process.
 
-During this process, inconsistencies in hash values were observed, highlighting the challenges of acquisition without specialist hardware such as a write blocker.
+### Validation and Reattempt
+A second hash of the original device confirmed no changes had occurred, ruling out modification of the source media.
 
-### File System Examination
-The device was mounted and the directory structure examined.
+A second imaging attempt revealed a size mismatch between the device and the image, suggesting potential padding or acquisition inconsistencies.
 
-File metadata, including timestamps, was reviewed to understand activity on the device.
+### Successful Acquisition
+A third imaging attempt was performed using a simplified `dd` command:
 
-## Findings
-- Multiple files were present, including documents and media
-- File timestamps showed a sequence of creation and modification
-- Activity appeared to occur within a relatively short time window
-
-## Analysis
-The observed file activity suggests typical user interaction, including file creation and editing.
-
-The hashing inconsistencies during acquisition demonstrate the importance of controlled forensic processes and proper tooling.
-
-## Limitations
-- No write blocker was used
-- Imaging process was not forensically sound
-- Analysis was conducted on a live system
-
-## Conclusion
-This exercise demonstrated how removable media can be examined to identify user activity, while also highlighting the importance of correct acquisition procedures.
-
-## Reflection
-This lab provided practical insight into both file system analysis and the challenges of maintaining forensic integrity during evidence handling.
+```bash
+sudo dd if=/dev/sdb of=JM-USB-001-3.img bs=4M status=progress
