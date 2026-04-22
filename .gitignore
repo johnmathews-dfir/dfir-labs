@@ -1,0 +1,13 @@
+# DFIR Labs - ignore large forensic artefacts and recovered files
+
+*.img
+*.E01
+
+01_acquisition/images/*
+!01_acquisition/images/.gitkeep
+
+02_analysis/recovered_files/*
+!02_analysis/recovered_files/.gitkeep
+
+*.log
+.DS_Store
